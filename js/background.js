@@ -9,4 +9,5 @@ const chosenImg = images[Math.floor(Math.random() * images.length)];
 const bgImg = document.createElement("img");
 bgImg.src = `${chosenImg}`;
 
-document.body.appendChild(bgImg);
+const firstChild = document.body.firstChild;
+document.body.insertBefore(bgImg, firstChild);
