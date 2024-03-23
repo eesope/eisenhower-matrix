@@ -4,30 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>momentum</title>
-
-    <link rel="stylesheet" href="css/style.css">
+    <title>Eisenhower matrix</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-
     <form class="hidden" id="login-form">
         <input required maxlength="15" type="text" placeholder="What is your name?" />
         <input type="submit" value="Log In" />
     </form>
 
-    <h1 id="greeting" class="hidden"></h1>
+    <div id="greeting" class="hidden"></div>
 
-    <h2 id="clock"></h2>
+    <div id="clock"></div>
 
     <div id="weather">
         <span></span>
     </div>
 
     <form id="todo-form">
-        <input type="text" placeholder="Write a Todo and press enter!" />
+        <input type="text" placeholder="Enter todo here!" />
     </form>
     <ul id="todo-list"></ul>
+
+    <div class="matrix-container">
+
+        <div class="matrix-section" id="do-section">
+            <form id="todo-form">
+                <input type="text" placeholder="Enter todo here!" />
+            </form>
+            <ul id="todo-list"></ul>
+        </div>
+
+        <div class="matrix-section" id="schedule-section">
+            <form id="todo-form">
+                <input type="text" placeholder="Enter todo here!" />
+            </form>
+            <ul id="todo-list"></ul>
+        </div>
+
+        <div class="matrix-section" id="delegate-section">
+            <form id="todo-form">
+                <input type="text" placeholder="Enter todo here!" />
+            </form>
+            <ul id="todo-list"></ul>
+        </div>
+
+        <div class="matrix-section" id="delete-section">
+            <form id="todo-form">
+                <input type="text" placeholder="Enter todo here!" />
+            </form>
+            <ul id="todo-list"></ul>
+        </div>
+
+    </div>
 
     <div id="quote">
         <span></span>
