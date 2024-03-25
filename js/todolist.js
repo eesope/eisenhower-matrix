@@ -28,7 +28,6 @@ if (savedDos !== null) {
     const parsedSchedules = JSON.parse(savedSchedules);
     dos = parsedSchedules.schedules;
     const sectionDiv = document.querySelector("#schedule-section") // should fix this part to send div itself
-    console.log("window", sectionDiv)
     parsedSchedules.schedules.forEach(todo => paintTodo(todo, sectionDiv));
 
 } else if (savedDelegates !== null) {
@@ -79,9 +78,6 @@ function handleSubmit(event) { // event coming from form submit
         updatedArray = deletes;
     }
 
-    console.dir("submit > form", form)
-    console.log("submit > sectionDiv", sectionDiv)
-
     paintTodo(newTodoObj, sectionDiv);
     saveTodos(sectionId, updatedArray);
     input.value = null;
@@ -100,7 +96,6 @@ function paintTodo(newTodoObj, sectionDiv) {
     li.appendChild(button);
     span.innerText = newTodoObj.text; // get text only from obj
 
-    console.log("paint > sectionDiv", sectionDiv)
     ul.appendChild(li);
 
     button.innerText = "❎";
@@ -134,14 +129,10 @@ function deleteTodo(event) {
     const todoId = li.id;
 
     ul.removeChild(li);
-    // li.remove();
 
     // determine which section should be updated
     let todosArray;
     const sectionId = ul.parentElement.id;
-
-    console.log("delete > li", li)
-    console.log("delete > sectionId", sectionId)
 
     if (sectionId === DOS) {
         todosArray = dos;
@@ -153,11 +144,6 @@ function deleteTodo(event) {
         todosArray = deletes;
     }
 
-    console.log("delete > before filter", todosArray)
-
     todosArray = todosArray.filter((todo) => todo.id !== parseInt(todoId));
-
-    console.log("delete > after filter", todosArray)
-
     saveTodos(sectionId, todosArray); // refresh the list db & distinguish which section to be updated
 }
