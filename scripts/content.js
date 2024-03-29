@@ -1,5 +1,5 @@
 const todoForm = document.querySelectorAll(".todo-form");
-const todoLists = document.querySelectorAll(".todo-list");
+const todoList = document.querySelectorAll(".todo-list");
 const todoInput = document.querySelectorAll(".todo-form input");
 
 const DOS = "do-section"
@@ -12,7 +12,6 @@ const savedSchedules = localStorage.getItem(SCHEDULES);
 const savedDelegates = localStorage.getItem(DELEGATES);
 const savedDeletes = localStorage.getItem(DELETES);
 
-// not const; so that updatable!
 let dos = [];
 let schedules = [];
 let delegates = [];
@@ -20,25 +19,21 @@ let deletes = [];
 
 if (savedDos !== null) {
     const parsedDos = JSON.parse(savedDos);
-    dos = parsedDos.dos; // access the property from parsedDos
     const sectionDiv = document.querySelector("#do-section")
     parsedDos.dos.forEach(todo => paintTodo(todo, sectionDiv));
 
-} else if (savedSchedules !== null) {
+} if (savedSchedules !== null) {
     const parsedSchedules = JSON.parse(savedSchedules);
-    dos = parsedSchedules.schedules;
-    const sectionDiv = document.querySelector("#schedule-section") // should fix this part to send div itself
+    const sectionDiv = document.querySelector("#schedule-section")
     parsedSchedules.schedules.forEach(todo => paintTodo(todo, sectionDiv));
 
-} else if (savedDelegates !== null) {
+} if (savedDelegates !== null) {
     const parsedDelegates = JSON.parse(savedDelegates);
-    dos = parsedDelegates.delegates;
     const sectionDiv = document.querySelector("#delegate-section")
     parsedDelegates.delegates.forEach(todo => paintTodo(todo, sectionDiv));
 
-} else if (savedDeletes !== null) {
+} if (savedDeletes !== null) {
     const parsedDeletes = JSON.parse(savedDeletes);
-    dos = parsedDeletes.deletes;
     const sectionDiv = document.querySelector("#delete-section")
     parsedDeletes.deletes.forEach(todo => paintTodo(todo, sectionDiv));
 }
@@ -79,7 +74,7 @@ function handleSubmit(event) { // event coming from form submit
     }
 
     paintTodo(newTodoObj, sectionDiv);
-    saveTodos(sectionId, updatedArray);
+    saveTodo(sectionId, updatedArray);
     input.value = null;
 }
 
@@ -102,7 +97,7 @@ function paintTodo(newTodoObj, sectionDiv) {
     button.addEventListener("click", deleteTodo);
 }
 
-function saveTodos(sectionId, updatedArray) {
+function saveTodo(sectionId, updatedArray) {
     if (sectionId === DOS) {
         localStorage.setItem(DOS, JSON.stringify({
             dos: updatedArray,
@@ -131,19 +126,19 @@ function deleteTodo(event) {
     ul.removeChild(li);
 
     // determine which section should be updated
-    let todosArray;
+    let todoArray;
     const sectionId = ul.parentElement.id;
 
     if (sectionId === DOS) {
-        todosArray = dos;
+        todoArray = dos;
     } else if (sectionId === SCHEDULES) {
-        todosArray = schedules;
+        todoArray = schedules;
     } else if (sectionId === DELEGATES) {
-        todosArray = delegates;
+        todoArray = delegates;
     } else if (sectionId === DELETES) {
-        todosArray = deletes;
+        todoArray = deletes;
     }
 
-    todosArray = todosArray.filter((todo) => todo.id !== parseInt(todoId));
-    saveTodos(sectionId, todosArray); // refresh the list db & distinguish which section to be updated
+    todoArray = todoArray.filter((todo) => todo.id !== parseInt(todoId));
+    saveTodo(sectionId, todoArray); // refresh the list db & distinguish which section to be updated
 }
