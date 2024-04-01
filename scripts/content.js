@@ -20,21 +20,25 @@ let deletes = [];
 if (savedDos !== null) {
     const parsedDos = JSON.parse(savedDos);
     const sectionDiv = document.querySelector("#do-section")
+    dos = JSON.parse(savedDos).dos;
     parsedDos.dos.forEach(todo => paintTodo(todo, sectionDiv));
 
 } if (savedSchedules !== null) {
     const parsedSchedules = JSON.parse(savedSchedules);
     const sectionDiv = document.querySelector("#schedule-section")
+    schedules = JSON.parse(savedSchedules).schedules;
     parsedSchedules.schedules.forEach(todo => paintTodo(todo, sectionDiv));
 
 } if (savedDelegates !== null) {
     const parsedDelegates = JSON.parse(savedDelegates);
     const sectionDiv = document.querySelector("#delegate-section")
+    delegates = JSON.parse(savedDelegates).delegates;
     parsedDelegates.delegates.forEach(todo => paintTodo(todo, sectionDiv));
 
 } if (savedDeletes !== null) {
     const parsedDeletes = JSON.parse(savedDeletes);
     const sectionDiv = document.querySelector("#delete-section")
+    deletes = JSON.parse(savedDeletes).deletes;
     parsedDeletes.deletes.forEach(todo => paintTodo(todo, sectionDiv));
 }
 
@@ -53,12 +57,11 @@ function handleSubmit(event) { // event coming from form submit
     const sectionDiv = form.parentElement;
     let updatedArray;
 
-    const newTodoObj = { // so that newTodo have ID
+    const newTodoObj = {
         text: newTodo,
         id: Date.now()
     }
 
-    // push is happening here; change here to add more value to save
     if (sectionId === DOS) {
         dos.push(newTodoObj);
         updatedArray = dos;
