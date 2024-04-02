@@ -12,17 +12,17 @@ img {
 
 body,
 html {
-  font-size: 30px;
-  overflow: scroll;
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Noto Sans Mono", monospace;
+  background: rgb(168, 168, 168);
 }
 
-html {
-  background: gray;
+body {
+  font-size: 24px;
+  font-family: "Noto Sans Mono", monospace;
+  overflow: scroll;
 }
 
 button {
@@ -30,3 +30,28 @@ button {
   border: none;
   font-size: 30px;
 }
+
+.matrix-section {
+  overflow: scroll;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
