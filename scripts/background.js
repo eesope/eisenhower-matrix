@@ -3,8 +3,17 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 function performSearch(query) {
+    if (!query || query.trim() === "") {
+        console.error("Search query is empty");
+        return;
+    }
+
     chrome.search.query({ text: query }, function (results) {
-        console.log("Search results:", results);
+        if (chrome.runtime.lastError) {
+            console.error("Search query failed:", chrome.runtime.lastError);
+        } else {
+            console.log("Search results:", results);
+        }
     });
 }
 

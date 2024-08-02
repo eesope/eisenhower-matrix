@@ -19,8 +19,13 @@ let deletes = [];
 
 document.getElementById('search-form').addEventListener('submit', function (event) {
     event.preventDefault();
-    const query = document.getElementById('search-query').value;
-    chrome.runtime.sendMessage({ action: "search", query: query });
+    const query = document.getElementById('search-query').value.trim();
+
+    if (query) {
+        chrome.runtime.sendMessage({ action: "search", query: query });
+    } else {
+        console.error("Search query is empty");
+    }
 });
 
 
