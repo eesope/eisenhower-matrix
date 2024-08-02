@@ -12,5 +12,9 @@
 
   "chrome_url_overrides": {
     "newtab": "index.html"
+  },
+
+  "background": {
+    "service_worker": "scripts/background.js"
   }
 }
