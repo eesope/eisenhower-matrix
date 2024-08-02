@@ -24,3 +24,10 @@
 .cell-title {
   text-align: center;
 }
+
+.todo-form input {
+  width: 80%;
+  padding: 10px;
+  font-size: 20px;
+  margin-left: 10px;
+}

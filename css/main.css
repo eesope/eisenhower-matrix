@@ -55,3 +55,23 @@ button {
   background: #555;
 }
 
+#search-button {
+  font-size: 30px;
+}
+
+#search-button:hover {
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+#search-query {
+  width: 50%;
+  padding: 10px;
+  font-size: 20px;
+}
+
+#search-form {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
