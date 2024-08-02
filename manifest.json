@@ -4,7 +4,7 @@
   "version": "2.0",
   "description": "A todo list that adapted eisenhower matrix",
 
-  "permissions": ["storage", "favicon", "search"],
+  "permissions": ["search"],
 
   "action": {
     "default_icon": "favicon.png"
