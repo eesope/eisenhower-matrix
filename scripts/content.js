@@ -17,6 +17,13 @@ let schedules = [];
 let delegates = [];
 let deletes = [];
 
+document.getElementById('search-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const query = document.getElementById('search-query').value;
+    chrome.runtime.sendMessage({ action: "search", query: query });
+});
+
+
 if (savedDos !== null) {
     const parsedDos = JSON.parse(savedDos);
     const sectionDiv = document.querySelector("#do-section")
