@@ -1,5 +1,5 @@
 ### Eisenhower matrix
-A chrome web app that helps people organize their TODOs. This app is using a local storage to save each TODOs.
+A chrome extension that helps people organize their TODOs. This app is using a local storage to save each TODOs.
 
 [Chrome web store link](
 https://chrome.google.com/webstore/detail/nmaaafdfgconkkghicmfajaijndfapjb)
