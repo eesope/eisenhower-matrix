@@ -7,5 +7,9 @@ https://chrome.google.com/webstore/detail/nmaaafdfgconkkghicmfajaijndfapjb)
 #### known errors
 - sometimes font loading time takes longer time
 
+#### fix todo
+- design: colors, scroll, titles
+- level systems
+
 #### Sample image
 ![sample](ver2.png)
